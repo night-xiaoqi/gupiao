@@ -1,0 +1,6 @@
+{"type":"server-started","port":51847,"host":"127.0.0.1","url_host":"localhost","url":"http://localhost:51847","screen_dir":"/Users/tianxiang.yang/Desktop/yang/study/gupiao/.superpowers/brainstorm/44708-1778570812/content","state_dir":"/Users/tianxiang.yang/Desktop/yang/study/gupiao/.superpowers/brainstorm/44708-1778570812/state"}
+{"type":"screen-added","file":"/Users/tianxiang.yang/Desktop/yang/study/gupiao/.superpowers/brainstorm/44708-1778570812/content/lecture-layout-options.html"}
+{"type":"screen-updated","file":"/Users/tianxiang.yang/Desktop/yang/study/gupiao/.superpowers/brainstorm/44708-1778570812/content/lecture-layout-options.html"}
+{"source":"user-event","type":"click","text":"方案 B｜教材精读型\n        \n          \n            01\n            \n              东方财富界面导读\n              01.1 首页结构01.2 自选股区域01.3 行情窗口解读\n            \n          \n          \n            学习重点\n            重点圈定每个区域的用途，便于学生课后回顾。\n          \n        \n      \n    \n    \n      方案 B｜教材精读型\n      编号更规范，整体更像正式教材，适合打印成系统讲义。","choice":"b","id":null,"timestamp":1778571583763}
+{"type":"screen-added","file":"/Users/tianxiang.yang/Desktop/yang/study/gupiao/.superpowers/brainstorm/44708-1778570812/content/waiting-2.html"}
+{"type":"server-stopped","reason":"idle timeout"}
