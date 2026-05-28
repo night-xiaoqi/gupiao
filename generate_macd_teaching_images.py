@@ -39,6 +39,52 @@ SCENARIOS = [
         'notes': [{'text': '低位企稳后转强', 'type': 'price', 'index': 8}],
     },
     {
+        'filename': 'macd-low-start-example.png',
+        'title': '低位启动示意图',
+        'subtitle': '低位横盘后重新站上均线，MACD 开始低位转强',
+        'price': [9.8, 9.62, 9.48, 9.36, 9.3, 9.34, 9.42, 9.56, 9.74, 9.98, 10.22, 10.48],
+        'dif': [-0.82, -0.9, -0.86, -0.72, -0.56, -0.38, -0.18, 0.06, 0.24, 0.4, 0.52, 0.6],
+        'dea': [-0.58, -0.64, -0.68, -0.66, -0.58, -0.46, -0.32, -0.16, -0.02, 0.12, 0.24, 0.34],
+        'bars': [-0.24, -0.26, -0.18, -0.06, 0.02, 0.08, 0.14, 0.22, 0.26, 0.28, 0.28, 0.26],
+        'label': '低位启动',
+        'cross_index': 7,
+        'notes': [
+            {'text': '低位企稳', 'type': 'price', 'index': 4},
+            {'text': '放量转强', 'type': 'price', 'index': 9},
+        ],
+    },
+    {
+        'filename': 'macd-pullback-restart-example.png',
+        'title': '回踩再起示意图',
+        'subtitle': '上涨后缩量回踩关键均线，随后再次放量转强',
+        'price': [10.0, 10.28, 10.56, 10.82, 11.0, 10.94, 10.82, 10.86, 11.05, 11.28, 11.52, 11.78],
+        'dif': [0.12, 0.24, 0.38, 0.52, 0.62, 0.56, 0.48, 0.44, 0.5, 0.62, 0.74, 0.86],
+        'dea': [0.08, 0.16, 0.26, 0.38, 0.48, 0.5, 0.48, 0.46, 0.46, 0.5, 0.58, 0.68],
+        'bars': [0.04, 0.08, 0.12, 0.14, 0.14, 0.06, 0.0, -0.02, 0.04, 0.12, 0.16, 0.18],
+        'label': '回踩再起',
+        'cross_index': 8,
+        'notes': [
+            {'text': '缩量回踩', 'type': 'price', 'index': 6},
+            {'text': '再次放量', 'type': 'price', 'index': 9},
+        ],
+    },
+    {
+        'filename': 'macd-second-golden-cross-example.png',
+        'title': '零轴上方二次金叉示意图',
+        'subtitle': '第一次转强后整理消化，随后再度放量上行',
+        'price': [10.0, 10.35, 10.72, 11.02, 10.92, 10.82, 10.88, 11.0, 11.22, 11.5, 11.78, 12.06],
+        'dif': [0.22, 0.28, 0.34, 0.4, 0.38, 0.3, 0.24, 0.26, 0.34, 0.46, 0.58, 0.68],
+        'dea': [0.16, 0.22, 0.28, 0.34, 0.35, 0.32, 0.28, 0.27, 0.29, 0.34, 0.42, 0.5],
+        'bars': [0.06, 0.06, 0.06, 0.06, 0.03, -0.02, -0.04, -0.01, 0.05, 0.12, 0.16, 0.18],
+        'label': '二次金叉',
+        'cross_index': 8,
+        'notes': [
+            {'text': '第一次金叉', 'type': 'macd', 'index': 3},
+            {'text': '整理消化', 'type': 'price', 'index': 6},
+            {'text': '二次金叉', 'type': 'macd', 'index': 8},
+        ],
+    },
+    {
         'filename': 'macd-death-cross-example.png',
         'title': 'MACD 死叉示意图',
         'subtitle': 'DIF 自上向下跌破 DEA，短线开始转弱',
@@ -271,7 +317,7 @@ def render_scenario(scenario):
     price_xs, price_y = draw_price_line(draw, scenario['price'])
     draw_histogram(draw, scenario['bars'])
     xs, dif_y, dea_y = draw_macd_lines(draw, scenario['dif'], scenario['dea'])
-    cross_index = find_cross_index(scenario['dif'], scenario['dea'])
+    cross_index = scenario.get('cross_index', find_cross_index(scenario['dif'], scenario['dea']))
     label_x = max(PADDING + 20, min(WIDTH - PADDING - 230, xs[cross_index] - 110))
     label_y = PRICE_TOP + 20
     add_annotation(draw, scenario['label'], (label_x, label_y), width=220)
